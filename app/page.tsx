@@ -52,7 +52,7 @@ export default async function Page({ searchParams }: { searchParams: { cidade?: 
   const cidade = normalizeCidade(resolved?.cidade)
 
   const tallyUrl = cidade
-    ? `https://tally.so/r/2ED4zA?transparentBackground=1&cidade=${encodeURIComponent(
+    ? `https://tally.so/r/2ED4zA?transparentBackground=1&prefill[cidade]=${encodeURIComponent(
         cidade,
       )}`
     : null
