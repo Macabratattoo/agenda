@@ -6,17 +6,17 @@ const cidades = [
   {
     nome: "Cascavel",
     periodo: "20/07 - 20/10",
-    href: "https://v0-skincrack6.vercel.app/?cidade=Cascavel",
+    href: "https://v0-skincrack6.vercel.app/?cidade=cascavel",
   },
   {
     nome: "Gravataí",
     periodo: "01/06 - 18/07",
-    href: "https://v0-skincrack6.vercel.app/?cidade=Gravatai",
+    href: "https://v0-skincrack6.vercel.app/?cidade=gravatai",
   },
   {
     nome: "Baln. Camboriú",
     periodo: "10/11 - 30/03",
-    href: "https://v0-skincrack6.vercel.app/?cidade=Camboriu",
+    href: "https://v0-skincrack6.vercel.app/?cidade=camboriu",
   },
 ]
 

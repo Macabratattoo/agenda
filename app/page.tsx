@@ -6,17 +6,17 @@ const cidades = [
   {
     nome: "Cascavel",
     periodo: "20/07 - 20/10",
-    href: "/?cidade=Cascavel",
+    href: "/?cidade=cascavel",
   },
   {
     nome: "Gravataí",
     periodo: "01/06 - 18/07",
-    href: "/?cidade=Gravatai",
+    href: "/?cidade=gravatai",
   },
   {
     nome: "Baln. Camboriú",
     periodo: "10/11 - 30/03",
-    href: "/?cidade=Camboriu",
+    href: "/?cidade=camboriu",
   },
 ]
 
@@ -28,12 +28,11 @@ const socials = [
 ]
 
 const cityMapping: Record<string, string> = {
-  cascavel: "Cascavel",
-  gravatai: "Gravatai",
-  gravataí: "Gravatai",
-  camboriu: "Camboriu",
-  "baln. camboriú": "Camboriu",
-  "baln camboriu": "Camboriu",
+  cascavel: "cascavel",
+  gravatai: "gravatai",
+  camboriu: "camboriu",
+  "baln. camboriu": "camboriu",
+  "baln camboriu": "camboriu",
 }
 
 function normalizeCidade(value?: string) {
@@ -45,7 +44,7 @@ function normalizeCidade(value?: string) {
     .normalize("NFD")
     .replace(/\p{Diacritic}/gu, "")
 
-  return cityMapping[normalizedValue] ?? value
+  return cityMapping[normalizedValue] ?? normalizedValue
 }
 
 export default async function Page({ searchParams }: { searchParams: { cidade?: string } | Promise<{ cidade?: string }> }) {
@@ -53,7 +52,7 @@ export default async function Page({ searchParams }: { searchParams: { cidade?: 
   const cidade = normalizeCidade(resolved?.cidade)
 
   const tallyUrl = cidade
-    ? `https://tally.so/r/2ED4zA?transparentBackground=1&prefill[cidade]=${encodeURIComponent(
+    ? `https://tally.so/r/2ED4zA?transparentBackground=1&cidade=${encodeURIComponent(
         cidade,
       )}`
     : null
