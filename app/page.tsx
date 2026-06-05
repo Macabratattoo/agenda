@@ -26,9 +26,31 @@ const socials = [
   { label: "@cy6tattoo", href: "https://instagram.com/cy6tattoo" },
   { label: "WhatsApp", href: "https://wa.me/5547997772172" },
 ]
+
+const cityMapping: Record<string, string> = {
+  cascavel: "Cascavel",
+  gravatai: "Gravatai",
+  gravataí: "Gravatai",
+  camboriu: "Camboriu",
+  "baln. camboriú": "Camboriu",
+  "baln camboriu": "Camboriu",
+}
+
+function normalizeCidade(value?: string) {
+  if (!value) return null
+
+  const normalizedValue = value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+
+  return cityMapping[normalizedValue] ?? value
+}
+
 export default async function Page({ searchParams }: { searchParams: { cidade?: string } | Promise<{ cidade?: string }> }) {
   const resolved = await searchParams
-  const cidade = resolved?.cidade
+  const cidade = normalizeCidade(resolved?.cidade)
 
   const tallyUrl = cidade
     ? `https://tally.so/r/2ED4zA?transparentBackground=1&prefill[cidade]=${encodeURIComponent(
