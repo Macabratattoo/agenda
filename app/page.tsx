@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { MatrixBackground } from "@/components/matrix-background"
 import { GlitchTitle } from "@/components/glitch-title"
+import { InteractionEffects } from "@/components/interaction-effects"
 
 const socials = [
   { label: "@benebtattoo", href: "https://instagram.com/benebtattoo" },
@@ -12,6 +13,8 @@ const socials = [
 export default function Page() {
   return (
     <main className="relative h-dvh w-full overflow-hidden bg-black text-white">
+      <InteractionEffects />
+
       {/* Fundo Matrix */}
       <MatrixBackground />
 
@@ -55,7 +58,7 @@ export default function Page() {
               href={social.href}
               target="_blank"
               rel="noreferrer"
-              className="border border-[#39FF14] bg-black/75 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wide text-[#39FF14] shadow-[0_0_6px_rgba(57,255,20,0.2)] transition-all duration-200 hover:bg-[#39FF14] hover:text-black hover:shadow-[0_0_12px_#39FF14]"
+              className="neon-control border border-[#39FF14] bg-black/75 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wide text-[#39FF14] shadow-[0_0_6px_rgba(57,255,20,0.2)] transition-all duration-200 hover:bg-[#39FF14] hover:text-black hover:shadow-[0_0_12px_#39FF14]"
             >
               {social.label}
             </a>
