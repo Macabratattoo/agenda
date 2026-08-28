@@ -35,7 +35,7 @@ export function GlitchTitle() {
     <div className="relative z-10 mb-2 text-center">
       <h1
         ref={h1Ref}
-        className="m-0 mb-1 inline-block text-balance text-[clamp(18px,2.5vw,28px)] font-bold uppercase tracking-[4px] text-white [text-shadow:0_0_8px_#39FF14]"
+        className="neon-control m-0 mb-1 inline-block text-balance text-[clamp(18px,2.5vw,28px)] font-bold uppercase tracking-[4px] text-white [text-shadow:0_0_8px_#39FF14]"
       >
         Artista Bene Bertocco
       </h1>

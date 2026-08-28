@@ -41,7 +41,10 @@ export function MatrixBackground() {
 
       for (let i = 0; i < drops.length; i++) {
         const bright = Math.random() > 0.95
-        ctx.fillStyle = bright ? "#ffffff" : "#39FF14"
+        const neonColor = document.documentElement.classList.contains("neon-pink")
+          ? "#ff2bd6"
+          : "#39FF14"
+        ctx.fillStyle = bright ? "#ffffff" : neonColor
         const text = chars[Math.floor(Math.random() * chars.length)]
         ctx.fillText(text, i * fontSize, drops[i] * fontSize)
 

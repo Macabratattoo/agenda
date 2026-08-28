@@ -201,3 +201,28 @@
 .glitch-text-active {
   animation: h1ChromaticGlitch 0.4s linear;
 }
+
+/* Interação: cada clique ou rolagem pulsa o glitch e troca o neon */
+@keyframes interactionGlitch {
+  0%, 100% { filter: none; transform: translate(0); }
+  18% { filter: contrast(1.8) saturate(1.7); transform: translate(-3px, 1px) skewX(-1deg); }
+  36% { filter: invert(0.08) contrast(1.5); transform: translate(3px, -1px); }
+  54% { filter: contrast(2) saturate(2); transform: translate(-1px, 2px) skewX(1deg); }
+  72% { filter: none; transform: translate(2px, -1px); }
+}
+
+html.interaction-glitch-active main {
+  animation: interactionGlitch 0.42s steps(2, end);
+}
+
+html.neon-pink .neon-control {
+  border-color: #ff2bd6 !important;
+  color: #ff2bd6 !important;
+  text-shadow: 0 0 8px #ff2bd6 !important;
+  box-shadow: 0 0 8px rgba(255, 43, 214, 0.3);
+}
+
+html.neon-pink .neon-control:hover {
+  background-color: #ff2bd6;
+  color: #050505;
+}
