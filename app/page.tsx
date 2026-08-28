@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { MatrixBackground } from "@/components/matrix-background"
 import { GlitchTitle } from "@/components/glitch-title"
+import { InteractionEffects } from "@/components/interaction-effects"
 
 const cidades = [
   {
@@ -31,6 +32,8 @@ const socials = [
 export default function CidadesPage() {
   return (
     <main className="relative h-dvh w-full overflow-hidden bg-black text-white">
+      <InteractionEffects />
+
       {/* Fundo Matrix */}
       <MatrixBackground />
 
@@ -68,7 +71,7 @@ export default function CidadesPage() {
             <a
               key={cidade.nome}
               href={cidade.href}
-              className="flex w-full max-w-sm flex-col items-center gap-1 border border-[#39FF14] bg-black/75 px-6 py-4 text-center uppercase tracking-wide text-[#39FF14] shadow-[0_0_8px_rgba(57,255,20,0.25)] transition-all duration-200 hover:bg-[#39FF14] hover:text-black hover:shadow-[0_0_16px_#39FF14]"
+              className="neon-control flex w-full max-w-sm flex-col items-center gap-1 border border-[#39FF14] bg-black/75 px-6 py-4 text-center uppercase tracking-wide text-[#39FF14] shadow-[0_0_8px_rgba(57,255,20,0.25)] transition-all duration-200 hover:bg-[#39FF14] hover:text-black hover:shadow-[0_0_16px_#39FF14]"
             >
               <span className="text-lg font-bold tracking-[2px]">
                 {cidade.nome}
@@ -88,7 +91,7 @@ export default function CidadesPage() {
               href={social.href}
               target="_blank"
               rel="noreferrer"
-              className="border border-[#39FF14] bg-black/75 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wide text-[#39FF14] shadow-[0_0_6px_rgba(57,255,20,0.2)] transition-all duration-200 hover:bg-[#39FF14] hover:text-black hover:shadow-[0_0_12px_#39FF14]"
+              className="neon-control border border-[#39FF14] bg-black/75 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wide text-[#39FF14] shadow-[0_0_6px_rgba(57,255,20,0.2)] transition-all duration-200 hover:bg-[#39FF14] hover:text-black hover:shadow-[0_0_12px_#39FF14]"
             >
               {social.label}
             </a>
