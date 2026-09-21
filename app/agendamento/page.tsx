@@ -11,7 +11,37 @@ const socials = [
   { label: "WhatsApp", href: "https://wa.me/5547997772172" },
 ]
 
-export default function Page() {
+const cityMapping: Record<string, string> = {
+  cascavel: "cascavel",
+  gravatai: "gravatai",
+  camboriu: "camboriu",
+  "baln. camboriu": "camboriu",
+  "baln camboriu": "camboriu",
+}
+
+function normalizeCidade(value?: string) {
+  if (!value) return null
+
+  const normalizedValue = value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+
+  return cityMapping[normalizedValue] ?? normalizedValue
+}
+
+export default async function Page({ searchParams }: { searchParams: { cidade?: string } | Promise<{ cidade?: string }> }) {
+  const resolved = await searchParams
+  const cidade = normalizeCidade(resolved?.cidade)
+
+  const tallyUrl = cidade
+    ? `https://tally.so/r/2ED4zA?prefill[cidade]=${encodeURIComponent(
+        cidade,
+      )}`
+    : null
+
+
   return (
     <main className="relative h-dvh w-full overflow-hidden bg-black text-white">
       <InteractionEffects />
@@ -47,7 +77,7 @@ export default function Page() {
         {/* Formulário Tally */}
         <div className="min-h-0 w-full flex-1 bg-transparent">
           <iframe
-            src="https://tally.so/r/2ED4zA?transparentBackground=1"
+            src={tallyUrl ?? "https://tally.so/r/2ED4zA"}
             title="Formulário de agendamento"
             className="block h-full w-full border-0 bg-transparent"
           />
