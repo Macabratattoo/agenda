@@ -11,32 +11,12 @@ const socials = [
   { label: "WhatsApp", href: "https://wa.me/5547997772172" },
 ]
 
-const cityMapping: Record<string, string> = {
-  cascavel: "cascavel",
-  gravatai: "gravatai",
-  camboriu: "camboriu",
-  "baln. camboriu": "camboriu",
-  "baln camboriu": "camboriu",
-}
-
-function normalizeCidade(value?: string) {
-  if (!value) return null
-
-  const normalizedValue = value
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/\p{Diacritic}/gu, "")
-
-  return cityMapping[normalizedValue] ?? normalizedValue
-}
-
 export default async function Page({ searchParams }: { searchParams: { cidade?: string } | Promise<{ cidade?: string }> }) {
   const resolved = await searchParams
-  const cidade = normalizeCidade(resolved?.cidade)
+  const cidade = resolved?.cidade
 
   const tallyUrl = cidade
-    ? `https://tally.so/r/2ED4zA?prefill[cidade]=${encodeURIComponent(
+    ? `https://tally.so/r/2ED4zA?cidade=${encodeURIComponent(
         cidade,
       )}`
     : null
