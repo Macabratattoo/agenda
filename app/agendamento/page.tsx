@@ -16,7 +16,7 @@ export default async function Page({ searchParams }: { searchParams: { cidade?: 
   const cidade = resolved?.cidade
 
   const tallyUrl = cidade
-    ? `https://tally.so/r/2ED4zA?cidade=${encodeURIComponent(
+    ? `https://tally.so/r/2ED4zA?transparentBackground=1&cidade=${encodeURIComponent(
         cidade,
       )}`
     : null
@@ -57,7 +57,7 @@ export default async function Page({ searchParams }: { searchParams: { cidade?: 
         {/* Formulário Tally */}
         <div className="min-h-0 w-full flex-1 bg-transparent">
           <iframe
-            src={tallyUrl ?? "https://tally.so/r/2ED4zA"}
+            src={tallyUrl ?? "https://tally.so/r/2ED4zA?transparentBackground=1"}
             title="Formulário de agendamento"
             className="block h-full w-full border-0 bg-transparent"
           />
