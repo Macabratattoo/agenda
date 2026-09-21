@@ -51,6 +51,8 @@ export default async function Page({ searchParams }: { searchParams: { cidade?: 
   const resolved = await searchParams
   const cidade = normalizeCidade(resolved?.cidade)
 
+  debugger
+
   const tallyUrl = cidade
     ? `https://tally.so/r/2ED4zA?transparentBackground=1&prefill[cidade]=${encodeURIComponent(
         cidade,
