@@ -7,17 +7,17 @@ import { InteractionEffects } from "@/components/interaction-effects"
 const cidades = [
   {
     nome: "Cascavel",
-    periodo: "20/07 - 20/10",
+    periodo: "01/09 - 20/11",
     href: "/agendamento?cidade=Cascavel",
   },
   {
     nome: "Gravataí",
-    periodo: "01/06 - 18/07",
+    periodo: "23/11 - 01/12",
     href: "/agendamento?cidade=Gravatai",
   },
   {
     nome: "Baln. Camboriú",
-    periodo: "10/11 - 30/03",
+    periodo: "03/12 - 10/03",
     href: "/agendamento?cidade=Camboriu",
   },
 ]
